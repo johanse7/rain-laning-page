@@ -38,7 +38,7 @@ export const CarouselHero = (props: CarouselHero) => {
 
   return (
     <Carousel
-      className="h-full min-h-dvh mask-radial-at-center mask-radial-from-40% mask-radial-to-90%"
+      className="h-full min-h-dvh mask-radial-at-center mask-radial-from-10% mask-radial-to-100%"
       opts={{ loop: true }}
       setApi={setApi}
     >
