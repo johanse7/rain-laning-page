@@ -26,19 +26,18 @@ export const CarouselHero = (props: CarouselHero) => {
       return;
     }
 
-    setCurrentIndexMedia(api.selectedScrollSnap());
     api.on("select", () => {
       setCurrentIndexMedia(api.selectedScrollSnap());
     });
   }, [api]);
 
-  const handleEnededMedia = () => {
+  const handleEndedMedia = () => {
     api?.scrollNext();
   };
 
   return (
     <Carousel
-      className="h-full min-h-dvh mask-radial-at-center mask-radial-from-10% mask-radial-to-100%"
+      className="h-full min-h-dvh mask-radial-hero"
       opts={{ loop: true }}
       setApi={setApi}
     >
@@ -48,7 +47,7 @@ export const CarouselHero = (props: CarouselHero) => {
             <MediaItem
               url={url}
               canPlay={currentIndexMedia === index}
-              onEnded={handleEnededMedia}
+              onEnded={handleEndedMedia}
             />
           </CarouselItem>
         ))}

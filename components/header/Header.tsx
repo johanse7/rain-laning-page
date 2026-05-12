@@ -10,10 +10,10 @@ export const Header = ({ className }: HeaderProps) => {
     <header
       className={cn(
         "p-5 w-full bg-transparent z-10 flex justify-center items-center",
-        className
+        className,
       )}
     >
-      <div className="relative w-[150] h-[150px]">
+      <div className="relative w-[150px] h-[150px]">
         <Image
           fill
           src="/images/logo.png"

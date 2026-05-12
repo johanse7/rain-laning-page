@@ -14,6 +14,7 @@ export const Footer = () => {
         <a
           href="https://www.instagram.com/somoslluvias?igsh=eDdrdnR4bmh6Zjdl"
           target="_blank"
+          rel="noopener noreferrer"
         >
           <Image
             src={InstargramImage}
@@ -26,6 +27,7 @@ export const Footer = () => {
         <a
           href="https://www.facebook.com/share/17fkxYPx37/?mibextid=wwXIfr"
           target="_blank"
+          rel="noopener noreferrer"
         >
           <Image
             src={FacebookImage}
@@ -38,12 +40,13 @@ export const Footer = () => {
         <a
           href="https://www.tiktok.com/@somoslluviass?_r=1&_t=ZS-91tEaOQTxh6"
           target="_blank"
+          rel="noopener noreferrer"
         >
           <Image
             src={TicktokImage}
             width={35}
             height={35}
-            alt="facebook image"
+            alt="tiktok image"
             className="object-cover"
           />
         </a>
@@ -51,6 +54,7 @@ export const Footer = () => {
         <a
           href="https://youtube.com/@somoslluvias?si=W-aFYaUQc85CLUtj"
           target="_blank"
+          rel="noopener noreferrer"
         >
           <Image
             src={YoutubeImage}

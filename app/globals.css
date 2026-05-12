@@ -115,6 +115,11 @@
   --brand-secondary: #013a67;
 }
 
+@utility mask-radial-hero {
+  -webkit-mask-image: radial-gradient(ellipse at center, black 10%, transparent 100%);
+  mask-image: radial-gradient(ellipse at center, black 10%, transparent 100%);
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
