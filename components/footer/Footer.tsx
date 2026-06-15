@@ -1,12 +1,12 @@
 import FacebookImage from "@/public/assets/FB.png";
-import InstargramImage from "@/public/assets/IG.png";
-import TicktokImage from "@/public/assets/TK.png";
+import InstagramImage from "@/public/assets/IG.png";
+import TikTokImage from "@/public/assets/TK.png";
 import YoutubeImage from "@/public/assets/YT.png";
 import Image from "next/image";
 
 export const Footer = () => {
   return (
-    <footer className="px-4 py-3 fixed bottom-0 left-1/2 -translate-x-1/2 w-full bg-brand-secondary/70 shadow-md">
+    <footer className="fixed inset-x-0 bottom-0 w-full px-4 py-3 bg-brand-secondary/70 shadow-md">
       <h3 className="text-xl text-foreground font-bold text-center mb-3">
         Síguenos en:
       </h3>
@@ -17,10 +17,10 @@ export const Footer = () => {
           rel="noopener noreferrer"
         >
           <Image
-            src={InstargramImage}
+            src={InstagramImage}
             width={35}
             height={35}
-            alt="instagram image"
+            alt="Instagram"
             className="object-cover"
           />
         </a>
@@ -33,7 +33,7 @@ export const Footer = () => {
             src={FacebookImage}
             width={35}
             height={35}
-            alt="facebook image"
+            alt="Facebook"
             className="object-cover"
           />
         </a>
@@ -43,10 +43,10 @@ export const Footer = () => {
           rel="noopener noreferrer"
         >
           <Image
-            src={TicktokImage}
+            src={TikTokImage}
             width={35}
             height={35}
-            alt="tiktok image"
+            alt="TikTok"
             className="object-cover"
           />
         </a>
@@ -60,7 +60,7 @@ export const Footer = () => {
             src={YoutubeImage}
             width={30}
             height={30}
-            alt="youtube image"
+            alt="YouTube"
             className="object-cover"
           />
         </a>

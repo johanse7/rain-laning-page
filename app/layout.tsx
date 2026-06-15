@@ -1,5 +1,3 @@
-import { Footer } from "@/components/footer/Footer";
-import { Header } from "@/components/header/Header";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
@@ -38,14 +36,8 @@ export default function RootLayout({
         strategy="afterInteractive"
       />
 
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased dark`}
-      >
-        <main className="min-h-dvh w-full relative">
-          <Header className="fixed " />
-          {children}
-          <Footer />
-        </main>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased dark`}>
+        {children}
       </body>
     </html>
   );
