@@ -26,7 +26,7 @@ export const MediaItem = (props: MediaItemProps) => {
 
   if (hasError) {
     return (
-      <div className="w-full h-full min-h-dvh flex items-center justify-center bg-black text-white">
+      <div className="flex h-full min-h-dvh w-full items-center justify-center bg-black text-white">
         <p className="text-lg">Error al cargar el video</p>
       </div>
     );
@@ -34,11 +34,11 @@ export const MediaItem = (props: MediaItemProps) => {
 
   return (
     <video
+      ref={refMedia}
       src={url}
-      className="w-full h-full min-h-dvh object-cover"
+      className="h-full min-h-dvh w-full object-cover"
       muted
       playsInline
-      ref={refMedia}
       onEnded={onEnded}
       onError={handleError}
     />

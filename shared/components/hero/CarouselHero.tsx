@@ -8,14 +8,15 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "../ui/carousel";
+} from "@/components/ui/carousel";
+
 import { MediaItem } from "./MediaItem";
 
-interface CarouselHero {
+interface CarouselHeroProps {
   contentMediaUrls: string[];
 }
 
-export const CarouselHero = (props: CarouselHero) => {
+export const CarouselHero = (props: CarouselHeroProps) => {
   const { contentMediaUrls = [] } = props;
 
   const [api, setApi] = useState<CarouselApi>();
@@ -36,19 +37,11 @@ export const CarouselHero = (props: CarouselHero) => {
   };
 
   return (
-    <Carousel
-      className="h-full min-h-dvh mask-radial-hero"
-      opts={{ loop: true }}
-      setApi={setApi}
-    >
+    <Carousel className="h-full min-h-dvh mask-radial-hero" opts={{ loop: true }} setApi={setApi}>
       <CarouselContent className="h-full min-h-dvh">
         {contentMediaUrls.map((url, index) => (
           <CarouselItem key={url} className="h-full min-h-dvh">
-            <MediaItem
-              url={url}
-              canPlay={currentIndexMedia === index}
-              onEnded={handleEndedMedia}
-            />
+            <MediaItem url={url} canPlay={currentIndexMedia === index} onEnded={handleEndedMedia} />
           </CarouselItem>
         ))}
       </CarouselContent>

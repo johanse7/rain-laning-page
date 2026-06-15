@@ -11,10 +11,10 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import * as React from "react";
+import { usePathname } from "next/navigation";
 
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { usePathname } from "next/navigation";
 
 const navItems = [
   { href: "/", label: "Inicio", icon: Home },
@@ -25,18 +25,12 @@ const navItems = [
 
 export function SiteSidebar() {
   const [open, setOpen] = React.useState(false);
-
   const pathName = usePathname();
 
   return (
     <>
       <div className="sticky top-0 z-40 flex items-center justify-between border-b border-brand-border bg-brand-background/90 px-4 py-3 backdrop-blur md:hidden">
-        <Button
-          variant="brandOutline"
-          size="icon"
-          onClick={() => setOpen(true)}
-          aria-label="Abrir menú"
-        >
+        <Button variant="brandOutline" size="icon" onClick={() => setOpen(true)} aria-label="Abrir menú">
           <Menu className="size-5" />
         </Button>
       </div>
@@ -69,24 +63,14 @@ export function SiteSidebar() {
 
       {open ? (
         <div className="fixed inset-0 z-50 md:hidden">
-          <div
-            className="absolute inset-0 bg-slate-950/70"
-            onClick={() => setOpen(false)}
-          />
+          <div className="absolute inset-0 bg-slate-950/70" onClick={() => setOpen(false)} />
           <div className="absolute inset-y-0 left-0 w-[85%] max-w-sm border-r border-brand-border bg-brand-background p-4 shadow-2xl">
             <div className="flex items-center justify-between border-b border-brand-border pb-4">
               <div>
-                <p className="text-sm font-semibold text-brand-foreground">
-                  Lluvias de Gloria Eterna
-                </p>
+                <p className="text-sm font-semibold text-brand-foreground">Lluvias de Gloria Eterna</p>
                 <p className="text-xs text-brand-muted">Menú interno</p>
               </div>
-              <Button
-                variant="brandGhost"
-                size="icon"
-                onClick={() => setOpen(false)}
-                aria-label="Cerrar menú"
-              >
+              <Button variant="brandGhost" size="icon" onClick={() => setOpen(false)} aria-label="Cerrar menú">
                 <X className="size-5" />
               </Button>
             </div>
