@@ -6,6 +6,23 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-brand-background: var(--brand-background);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-brand-surface: var(--brand-surface);
+  --color-brand-surface-strong: var(--brand-surface-strong);
+  --color-brand-surface-soft: var(--brand-surface-soft);
+  --color-brand-border: var(--brand-border);
+  --color-brand-muted: var(--brand-muted);
+  --color-brand-primary: var(--brand-primary);
+  --color-brand-primary-foreground: var(--brand-primary-foreground);
+  --color-brand-primary-hover: var(--brand-primary-hover);
+  --color-brand-secondary: var(--brand-secondary);
+  --color-brand-secondary-foreground: var(--brand-secondary-foreground);
+  --color-brand-secondary-hover: var(--brand-secondary-hover);
+  --color-brand-accent: var(--brand-accent);
+  --color-brand-accent-foreground: var(--brand-accent-foreground);
+  --color-brand-success: var(--brand-success);
+  --color-brand-success-foreground: var(--brand-success-foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --color-sidebar-ring: var(--sidebar-ring);
@@ -77,7 +94,23 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
-  --brand-secondary: #013a67;
+  --brand-background: #08111f;
+  --brand-foreground: #f8fafc;
+  --brand-surface: rgba(255, 255, 255, 0.05);
+  --brand-surface-strong: rgba(255, 255, 255, 0.1);
+  --brand-surface-soft: rgba(255, 255, 255, 0.03);
+  --brand-border: rgba(255, 255, 255, 0.12);
+  --brand-muted: #94a3b8;
+  --brand-primary: #22d3ee;
+  --brand-primary-foreground: #020617;
+  --brand-primary-hover: #67e8f9;
+  --brand-secondary: #d946ef;
+  --brand-secondary-foreground: #ffffff;
+  --brand-secondary-hover: #e879f9;
+  --brand-accent: #a855f7;
+  --brand-accent-foreground: #ffffff;
+  --brand-success: #34d399;
+  --brand-success-foreground: #052e16;
 }
 
 .dark {
@@ -112,7 +145,23 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
-  --brand-secondary: #013a67;
+  --brand-background: #08111f;
+  --brand-foreground: #f8fafc;
+  --brand-surface: rgba(255, 255, 255, 0.05);
+  --brand-surface-strong: rgba(255, 255, 255, 0.1);
+  --brand-surface-soft: rgba(255, 255, 255, 0.03);
+  --brand-border: rgba(255, 255, 255, 0.12);
+  --brand-muted: #94a3b8;
+  --brand-primary: #22d3ee;
+  --brand-primary-foreground: #020617;
+  --brand-primary-hover: #67e8f9;
+  --brand-secondary: #d946ef;
+  --brand-secondary-foreground: #ffffff;
+  --brand-secondary-hover: #e879f9;
+  --brand-accent: #a855f7;
+  --brand-accent-foreground: #ffffff;
+  --brand-success: #34d399;
+  --brand-success-foreground: #052e16;
 }
 
 @utility mask-radial-hero {

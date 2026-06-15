@@ -14,11 +14,57 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Lluvias de gloria eterna",
+  metadataBase: new URL("https://www.somoslluvias.com/"),
+  title: {
+    default: "Lluvias de Gloria Eterna",
+    template: "%s | Lluvias de Gloria Eterna",
+  },
   description:
-    "Somos Lluvias de gloria eterna — Música y contenido cristiano para inspirar tu fe.",
-  verification: {
-    google: "codigo-que-te-da-adsense",
+    "Lluvias de Gloria Eterna es una comunidad cristiana con música, encuentros y contenido para fortalecer tu fe.",
+  keywords: [
+    "Lluvias de Gloria Eterna",
+    "ministerio juvenil cristiano",
+    "iglesia cristiana",
+    "adoración",
+    "eventos cristianos",
+  ],
+  applicationName: "Lluvias de Gloria Eterna",
+  authors: [{ name: "Lluvias de Gloria Eterna" }],
+  creator: "Lluvias de Gloria Eterna",
+  publisher: "Lluvias de Gloria Eterna",
+  openGraph: {
+    type: "website",
+    locale: "es_ES",
+    siteName: "Lluvias de Gloria Eterna",
+    title: "Lluvias de Gloria Eterna",
+    description:
+      "Comunidad cristiana con música, encuentros y contenido para fortalecer tu fe.",
+    images: [
+      {
+        url: "/images/logo.png",
+        width: 1200,
+        height: 630,
+        alt: "Lluvias de Gloria Eterna",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Lluvias de Gloria Eterna",
+    description:
+      "Comunidad cristiana con música, encuentros y contenido para fortalecer tu fe.",
+    images: ["/images/logo.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
 };
 
@@ -36,7 +82,9 @@ export default function RootLayout({
         strategy="afterInteractive"
       />
 
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased dark`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased dark`}
+      >
         {children}
       </body>
     </html>
