@@ -6,4 +6,4 @@ export interface Event {
   description: string;
 }
 
-export type EventStatus = "upcoming" | "live" | "past" | "ongoing";
+export type EventStatus = "upcoming" | "live" | "past";

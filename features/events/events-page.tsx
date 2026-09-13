@@ -33,8 +33,8 @@ const events: Event[] = [
   },
   {
     title: "Servicio y Mision",
-    startDate: new Date("2026-06-30T18:37:00"),
-    endDate: new Date("2026-06-30T18:39:00"),
+    startDate: new Date("2026-06-30T20:39:00"),
+    endDate: new Date("2026-06-30T20:40:00"),
     location: "Ciudad y barrios cercanos",
     description:
       "Juntos servimos a otros con acciones practicas, amor y fe en movimiento.",

@@ -1,128 +1,83 @@
+import type { EventStatus } from "@/features/events/interfaces/event";
 import { formatCountDown } from "@/lib/utils";
-import { useEffect, useState } from "react";
-
-type EventStatus = "upcoming" | "ongoing" | "past" | "live";
+import { useEffect, useMemo, useState } from "react";
 
 const DEFAULT_COUNTDOWN_TIME = 30 * 60 * 1000;
 
 export const useEventStatus = (startDate: Date, endDate: Date) => {
-  const [countDown, setCountDown] = useState<number>(0);
-  const [missingTimeCurrentEvent, setMissingTimeCurrentEvent] = useState(() => {
-    const now = new Date();
-    if (now >= startDate && now <= endDate) {
-      return endDate.getTime() - now.getTime();
+  const startTime = startDate.getTime();
+  const endTime = endDate.getTime();
+  const hasValidDates = Number.isFinite(startTime) && Number.isFinite(endTime);
+  const hasValidRange = hasValidDates && endTime >= startTime;
+  const [now, setNow] = useState(() => Date.now());
+
+  useEffect(() => {
+    if (!hasValidRange) {
+      return;
     }
-    return null;
-  });
 
-  const [eventStatus, setEventStatus] = useState<EventStatus | undefined>(
-    undefined,
-  );
+    if (Date.now() > endTime) {
+      return;
+    }
 
-  //Initialize event status
-  useEffect(() => {
-    initEventStatus();
-  }, []);
+    const timer = setInterval(() => {
+      const current = Date.now();
 
-  ///Count down
-  useEffect(() => {
-    const now = new Date();
-    const differenceTime = startDate.getTime() - now.getTime();
+      if (current > endTime) {
+        clearInterval(timer);
+        setNow(endTime);
+        return;
+      }
 
-    let timer: NodeJS.Timeout | null = null;
+      setNow(current);
+    }, 1000);
+
+    return () => {
+      clearInterval(timer);
+    };
+  }, [endTime, hasValidRange, startTime]);
+
+  const eventStatus = useMemo<EventStatus>(() => {
+    if (!hasValidRange) {
+      return "past";
+    }
+
+    if (now < startTime) {
+      return "upcoming";
+    }
+
+    if (now <= endTime) {
+      return "live";
+    }
+
+    return "past";
+  }, [endTime, hasValidRange, now, startTime]);
+
+  const countDown = useMemo(() => {
+    if (!hasValidRange) {
+      return null;
+    }
+    console.log("now", now);
+    const differenceTime = startTime - now;
+
     if (differenceTime > 0 && differenceTime <= DEFAULT_COUNTDOWN_TIME) {
-      setCountDown(differenceTime);
-      timer = setInterval(() => {
-        setCountDown((prev) => {
-          if (prev <= 0) {
-            clearInterval(timer!);
-            return 0;
-          }
-          return prev - 1000;
-        });
-      }, 1000);
-
-      return;
+      return differenceTime;
     }
 
-    return () => {
-      if (timer) {
-        clearInterval(timer);
-      }
-    };
-  }, [startDate]);
+    return null;
+  }, [hasValidRange, now, startTime]);
 
-  //Event status change when countdown ends to live
-  useEffect(() => {
-    if (countDown <= 0 && eventStatus === "upcoming") {
-      setEventStatus("live");
-    }
-  }, [countDown]);
-
-  ///start counting the time of the event
-  useEffect(() => {
-    let timer: NodeJS.Timeout | null = null;
-    if (eventStatus === "live") {
-      timer = setInterval(() => {
-        setMissingTimeCurrentEvent((time) => {
-          if (time === null) {
-            const durationEvent = endDate.getTime() - startDate.getTime();
-            return durationEvent - 1000;
-          }
-
-          if (time <= 0) {
-            clearInterval(timer!);
-            return 0;
-          }
-          return time - 1000;
-        });
-      }, 1000);
+  const missingTimeCurrentEvent = useMemo(() => {
+    if (!hasValidRange || eventStatus !== "live") {
+      return null;
     }
 
-    return () => {
-      if (timer) {
-        clearInterval(timer);
-      }
-    };
-  }, [eventStatus]);
-
-  ///Event status finalization
-  useEffect(() => {
-    if (
-      eventStatus === "live" &&
-      missingTimeCurrentEvent !== null &&
-      missingTimeCurrentEvent <= 0
-    ) {
-      setEventStatus("past");
-    }
-  }, [eventStatus, missingTimeCurrentEvent]);
-
-  const initEventStatus = () => {
-    const now = new Date();
-    const eventDate = new Date(startDate);
-
-    if (eventDate > now) {
-      setEventStatus("upcoming");
-      return;
-    }
-
-    const endDateTime = new Date(endDate);
-    if (now >= eventDate && now <= endDateTime) {
-      setEventStatus("live");
-      return;
-    }
-
-    if (eventDate < now) {
-      setEventStatus("past");
-      return;
-    }
-
-    setEventStatus("ongoing");
-  };
+    return Math.max(endTime - now, 0);
+  }, [endTime, eventStatus, hasValidRange, now]);
 
   return {
     eventStatus,
-    countDownFormated: countDown > 0 ? formatCountDown(countDown) : null,
+    countDownFormated: countDown ? formatCountDown(countDown) : null,
     timeEventFormated:
       missingTimeCurrentEvent && missingTimeCurrentEvent > 0
         ? formatCountDown(missingTimeCurrentEvent)

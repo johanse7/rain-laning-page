@@ -16,8 +16,6 @@ export const EventStatusTag = (props: EventStatusTagProps) => {
         return "brand";
       case "past":
         return "destructive";
-      case "ongoing":
-        return "success";
       default:
         return "default";
     }
