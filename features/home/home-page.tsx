@@ -176,9 +176,14 @@ export function HomePage() {
                   Si buscas un lugar para adorar, crecer y servir, aqui hay un espacio para ti.
                 </p>
               </div>
-              <Button variant="brand" asChild className="rounded-full px-6">
-                <Link href="/grupos-conexion">Unirme a un grupo</Link>
-              </Button>
+              <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                <Button variant="brand" asChild className="rounded-full px-6">
+                  <Link href="/grupos-conexion">Unirme a un grupo</Link>
+                </Button>
+                <Button variant="brandOutline" asChild className="rounded-full px-6">
+                  <Link href="/quienes-somos">Nuestra misión y visión</Link>
+                </Button>
+              </div>
             </CardContent>
           </Card>
         </SectionReveal>

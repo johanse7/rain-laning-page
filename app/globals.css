@@ -23,6 +23,14 @@
   --color-brand-accent-foreground: var(--brand-accent-foreground);
   --color-brand-success: var(--brand-success);
   --color-brand-success-foreground: var(--brand-success-foreground);
+  --color-brand-vision: var(--brand-vision);
+  --color-brand-vision-soft: var(--brand-vision-soft);
+  --color-brand-vision-pink: var(--brand-vision-pink);
+  --color-brand-mission: var(--brand-mission);
+  --color-brand-mission-mint: var(--brand-mission-mint);
+  --color-brand-values: var(--brand-values);
+  --color-brand-values-cream: var(--brand-values-cream);
+  --color-brand-ink: var(--brand-ink);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --color-sidebar-ring: var(--sidebar-ring);
@@ -111,6 +119,14 @@
   --brand-accent-foreground: #ffffff;
   --brand-success: #34d399;
   --brand-success-foreground: #052e16;
+  --brand-vision: #1d5bd8;
+  --brand-vision-soft: #5b8def;
+  --brand-vision-pink: #f5b9da;
+  --brand-mission: #a78bfa;
+  --brand-mission-mint: #a9dfe3;
+  --brand-values: #f26a2e;
+  --brand-values-cream: #fdeab0;
+  --brand-ink: #0f2a4a;
 }
 
 .dark {
@@ -162,6 +178,14 @@
   --brand-accent-foreground: #ffffff;
   --brand-success: #34d399;
   --brand-success-foreground: #052e16;
+  --brand-vision: #1d5bd8;
+  --brand-vision-soft: #5b8def;
+  --brand-vision-pink: #f5b9da;
+  --brand-mission: #a78bfa;
+  --brand-mission-mint: #a9dfe3;
+  --brand-values: #f26a2e;
+  --brand-values-cream: #fdeab0;
+  --brand-ink: #0f2a4a;
 }
 
 @utility mask-radial-hero {

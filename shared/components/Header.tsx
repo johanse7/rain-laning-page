@@ -26,7 +26,14 @@ export function Header() {
             </p>
           </div>
         </div>
-        <div className="flex items-center gap-2 sm:gap-3">
+        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+          <Button
+            variant="brandOutline"
+            asChild
+            className="rounded-full px-4 text-xs sm:px-5 sm:text-sm"
+          >
+            <Link href="/quienes-somos">Quiénes Somos</Link>
+          </Button>
           <Button
             variant="brandOutline"
             asChild
@@ -35,11 +42,18 @@ export function Header() {
             <Link href="/ministerio-juvenil">Ministerio Juvenil</Link>
           </Button>
           <Button
-            variant="brand"
+            variant="brandOutline"
             asChild
             className="rounded-full px-4 text-xs sm:px-5 sm:text-sm"
           >
             <Link href="/">Inicio</Link>
+          </Button>
+          <Button
+            variant="brand"
+            asChild
+            className="rounded-full px-4 text-xs sm:px-5 sm:text-sm"
+          >
+            <Link href="/donaciones">Donar</Link>
           </Button>
         </div>
       </div>

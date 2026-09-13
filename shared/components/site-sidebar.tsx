@@ -3,7 +3,9 @@
 import {
   CalendarDays,
   ChevronRight,
+  Church,
   Compass,
+  HeartHandshake,
   Home,
   Menu,
   Users2,
@@ -18,9 +20,11 @@ import { cn } from "@/lib/utils";
 
 const navItems = [
   { href: "/", label: "Inicio", icon: Home },
+  { href: "/quienes-somos", label: "Quiénes Somos", icon: Church },
   { href: "/ministerio-juvenil", label: "Ministerio Juvenil", icon: Compass },
   { href: "/eventos", label: "Eventos", icon: CalendarDays },
   { href: "/grupos-conexion", label: "Grupos Conexión", icon: Users2 },
+  { href: "/donaciones", label: "Donaciones", icon: HeartHandshake },
 ];
 
 export function SiteSidebar() {
